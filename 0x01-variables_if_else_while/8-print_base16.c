@@ -7,10 +7,10 @@
 
 int main(void)
 {
-	char c[]="0123456789abcdef";
+	char c[] = "0123456789abcdef";
 	int i;
 
-	for (i = 0; i < 15; i++)
+	for (i = 0; i <= 15; i++)
 	{
 		putchar(c[i]);
 	}
