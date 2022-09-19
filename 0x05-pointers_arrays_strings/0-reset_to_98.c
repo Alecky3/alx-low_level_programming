@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * reset_to_98 - changes the parameter input value to 98
  * @n: the number to change its value
