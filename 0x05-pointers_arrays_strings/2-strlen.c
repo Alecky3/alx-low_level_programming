@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * _strlen - return the length of the string parameter
  * @s: the string to get its length
@@ -6,5 +8,10 @@
 
 int _strlen(char*s)
 {
-	return (strlen(s));
+	int count = 0;
+
+	while(*s++)
+		count++;
+
+	return (count);
 }
