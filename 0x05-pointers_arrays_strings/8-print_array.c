@@ -4,6 +4,7 @@
 /**
  * print_array - print n elements of the array
  * @n: the number of elements to print
+ * @a: the input array
  * Return: none
  */
 
