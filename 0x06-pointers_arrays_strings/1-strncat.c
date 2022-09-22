@@ -1,23 +1,27 @@
 #include "main.h"
-#include <string.h>
-
 /**
- * _strncat - concatenated n characters of src to the end of dest
- * @dest: the string to prepend to
- * @src: the string to append to dest
- * @n: the numbers of charactes to take from src
- * Return: pointer to dest
+ * _strncat - concatenates n characters from src to dest,
+ * @dest: destination string.
+ * @src: source string.
+ * @n: number of characters from src.
+ * Return: pointer to dest.
  */
-
 char *_strncat(char *dest, char *src, int n)
 {
-	int destLen = strlen(dest), i;
+	int count = 0, count2 = 0;
 
-	for (i = 0; i < n; i++)
+	while (*(dest + count) != '\0')
 	{
-		*(dest + destLen) = *(src + i);
-		destLen++;
+		count++;
 	}
 
+	while (count2 < n)
+	{
+		*(dest + count) = *(src + count2);
+		if (*(src + count2) == '\0')
+			break;
+		count++;
+		count2++;
+	}
 	return (dest);
 }
