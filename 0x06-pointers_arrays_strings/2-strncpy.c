@@ -1,23 +1,20 @@
 #include "main.h"
-#include <string.h>
-
 /**
- * _strncpy - concatenated n characters of src to the end of dest
- * @dest: the string to copy to
- * @src: the string to copy from
- * @n: the numbers of charactes to take from src
- * Return: pointer to dest
+ * _strncpy - copies n characters from src to dest
+ * @dest: destination string.
+ * @src: source string.
+ * @n: amount of charactersto copy from src.
+ * Return: pointer to dest.
  */
 
 char *_strncpy(char *dest, char *src, int n)
 {
-	int i;
+	int j;
 
-	for (i = 0; i < n; i++)
-	{
-		*(dest + i) = *(src + i);
-	}
-	dest[n + 1] = '\0';
+	for (j = 0; j < n && src[j] != '\0'; j++)
+		dest[j] = src[j];
+	for ( ; j < n; j++)
+		dest[j] = '\0';
 
 	return (dest);
 }
