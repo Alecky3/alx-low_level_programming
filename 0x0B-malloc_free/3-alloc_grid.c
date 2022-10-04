@@ -10,37 +10,34 @@
 
 int **alloc_grid(int width, int height)
 {
+	int **gridout;
 	int i, j;
-	int **ptr_int;
 
 	if (width < 1 || height < 1)
 		return (NULL);
 
-	ptr_int = malloc(height * sizeof(int *));
-
-	if (ptr_int == NULL)
+	gridout = malloc(height * sizeof(int *));
+	if (gridout == NULL)
 	{
-		free(ptr_int);
+		free(gridout);
 		return (NULL);
 	}
 
 	for (i = 0; i < height; i++)
 	{
-		ptr_int[i] = malloc(width * sizeof(int));
-		if (ptr_int[i] == NULL)
+		gridout[i] = malloc(width * sizeof(int));
+		if (gridout[i] == NULL)
 		{
-			for (i--; i >= 0; i++)
-				free(ptr_int[i]);
-			free(ptr_int);
+			for (i--; i >= 0; i--)
+				free(gridout[i]);
+			free(gridout);
 			return (NULL);
 		}
 	}
 
 	for (i = 0; i < height; i++)
-	{
 		for (j = 0; j < width; j++)
-			ptr_int[i][j] = 0;
-	}
+			gridout[i][j] = 0;
 
-	return (ptr_int);
+	return (gridout);
 }
