@@ -1,19 +1,19 @@
-#include "main.h"
+#include "holberton.h"
 #include <stdlib.h>
 
 /**
  * string_nconcat - concatenates two strings.
  * @s1: first string.
  * @s2: second string.
- * @n: amount of bytes.
+ * @n: amount of bytes to take from s2.
  *
  * Return: pointer to the allocated memory.
  * if malloc fails, status value is equal to 98.
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *result;
-	unsigned int len1, len2, lresult, i;
+	char *sout;
+	unsigned int len1, ls2, lsout, i;
 
 	if (s1 == NULL)
 		s1 = "";
@@ -24,26 +24,26 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (len1 = 0; s1[len1] != '\0'; len1++)
 		;
 
-	for (len2 = 0; s2[len2] != '\0'; len++)
+	for (ls2 = 0; s2[ls2] != '\0'; ls2++)
 		;
 
-	if (n > len2)
-		n = len2;
+	if (n > ls2)
+		n = ls2;
 
-	lresult = len1 + n;
+	lsout = len1 + n;
 
-	result = malloc(lresult + 1);
+	sout = malloc(lsout + 1);
 
-	if (result == NULL)
+	if (sout == NULL)
 		return (NULL);
 
-	for (i = 0; i < lresult; i++)
+	for (i = 0; i < lsout; i++)
 		if (i < len1)
-			result[i] = s1[i];
+			sout[i] = s1[i];
 		else
-			result[i] = s2[i - len1];
+			sout[i] = s2[i - len1];
 
-	result[i] = '\0';
+	sout[i] = '\0';
 
-	return (result);
+	return (sout);
 }
