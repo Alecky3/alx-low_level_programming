@@ -13,7 +13,7 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *sout;
-	unsigned int len1, ls2, lsout, i;
+	unsigned int len1, len2, lsout, i;
 
 	if (s1 == NULL)
 		s1 = "";
@@ -24,11 +24,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (len1 = 0; s1[len1] != '\0'; len1++)
 		;
 
-	for (ls2 = 0; s2[ls2] != '\0'; ls2++)
+	for (len2 = 0; s2[len2] != '\0'; len2++)
 		;
 
-	if (n > ls2)
-		n = ls2;
+	if (n > len2)
+		n = len2;
 
 	lsout = len1 + n;
 
