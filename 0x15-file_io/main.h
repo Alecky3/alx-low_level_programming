@@ -5,4 +5,5 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/fcntl.h>
+int _putchar(char c);
 #endif /* end of _MAIN_H_ header */
