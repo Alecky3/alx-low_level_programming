@@ -13,7 +13,6 @@ int append_text_to_file(const char *filename, char *text_content)
 	int letterCount;
 	int writtenChars;
 
-	letterCount = strlen(text_content);
 	if (!filename)
 		return (-1);
 
@@ -24,6 +23,8 @@ int append_text_to_file(const char *filename, char *text_content)
 
 	if (text_content)
 	{
+
+		letterCount = strlen(text_content);
 		writtenChars = write(fd, text_content, letterCount);
 
 		if (writtenChars == -1)
