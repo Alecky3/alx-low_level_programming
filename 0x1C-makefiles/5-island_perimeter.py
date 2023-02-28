@@ -1,76 +1,48 @@
 #!/usr/bin/python3
-""" defines function island_perimiter that returns the perimiter
-    of island.
+""" Defines one function island_perimeter that returns the perimiter of the
+    island described in grid.
 """
 
 
 def island_perimeter(grid):
-    rows = len(grid)
-    perimiter = 0
+    """ Returns the perimeter of the island as described by grid parameter."""
 
-    if grid != []:
+    if grid is None:
+        return 0
+    perimiter = 0;
+    rows = len(grid)
+
+    if rows:
         cols = len(grid[0])
 
     for r in range(rows):
         for c in range(cols):
-            if c == 0:
-                perimiter += 1
-                if r == 0:
+            if grid[r][c] == 1:
+                if c == 0 or c + 1 == cols:
                     perimiter += 1
-                    if c+1 < cols:
-                        if not grid[r][c + 1]:
+                    if c + 1 != cols:
+                        if grid[r][c+1] == 0:
                             perimiter += 1
-                        if not grid[r+1][c]:
+                    if c - 1 != -1:
+                        if grid[r][c-1] == 0:
                             perimiter += 1
-                if r+1 == rows:
+                else:
+                    if grid[r][c+1] == 0:
+                        perimiter += 1
+                    if grid[r][c-1] == 0:
+                        perimiter += 1
+                if r == 0 or r + 1 == rows:
                     perimiter += 1
-                    if c+1 < cols:
-                        if not grid[r][c+1]:
+                    if r + 1 != rows:
+                        if grid[r+1][c] == 0:
                             perimiter += 1
-                        if not grid[r-1][c]:
+                    if r -1 != -1:
+                        if grid[r-1][c] == 0:
                             perimiter += 1
-            if c+1 == cols:
-                perimiter += 1
-                if r == 0 and c-1 != -1:
-                    perimiter += 1
-                    if not grid[r][c-1]:
+                else:
+                    if grid[r-1][c] == 0:
                         perimiter += 1
-                    if not grid[r+1][c]:
+                    if grid[r+1][c] == 0:
                         perimiter += 1
-                if r+1 == rows and c-1 != -1:
-                    perimiter += 1
-                    if not grid[r][c-1]:
-                        perimiter += 1
-                    if not grid[r-1][c]:
-                        perimiter += 1
-
-            if c != 0 and c+1 != cols:
-                if r == 0:
-                    perimiter += 1
-                    if not grid[r][c-1]:
-                        perimiter += 1
-                    if not grid[r][c+1]:
-                        perimiter += 1
-                    if r+1 != rows and not grid[r+1][c]:
-                        perimiter += 1
-                if r+1 == rows:
-                    perimiter += 1
-                    if not grid[r][c-1]:
-                        perimiter += 1
-                    if not grid[r][c+1]:
-                        perimiter += 1
-                    if r-1 != -1 and not grid[r][c]:
-                        perimiter += 1
-
-                if not r and r+1 != rows:
-                    if not c-1 and not grid[r][c-1]:
-                        perimiter += 1
-                    if c+1 != cols and not grid[r][c+1]:
-                        perimiter += 1
-                    if not grid[r-1][c]:
-                        perimiter += 1
-                    if not grid[r+1][c]:
-                        perimiter += 1
-
 
     return perimiter
