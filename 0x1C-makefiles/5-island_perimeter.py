@@ -9,7 +9,7 @@ def island_perimeter(grid):
 
     if grid is None:
         return 0
-    perimiter = 0;
+    perimiter = 0
     rows = len(grid)
 
     if rows:
@@ -36,7 +36,7 @@ def island_perimeter(grid):
                     if r + 1 != rows:
                         if grid[r+1][c] == 0:
                             perimiter += 1
-                    if r -1 != -1:
+                    if r - 1 != -1:
                         if grid[r-1][c] == 0:
                             perimiter += 1
                 else:
